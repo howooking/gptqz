@@ -1,6 +1,7 @@
 "use client";
 
 import { User } from "next-auth";
+import { AiOutlineLogout } from "react-icons/ai";
 
 interface UserNavAccountProps {
   user?: Pick<User, "email" | "image" | "name">;
@@ -15,13 +16,16 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { signOut } from "next-auth/react";
-import { useState } from "react";
+import { MouseEvent } from "react";
 import { DropdownMenuArrow } from "@radix-ui/react-dropdown-menu";
+import UserAvatar from "./UserAvatar";
 
 export default function UserNavAccount({ user }: UserNavAccountProps) {
-  const handleSignout = async () => {
+  const handleSignout = async (
+    e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>
+  ) => {
+    e.preventDefault();
     try {
       signOut();
     } catch (error) {
@@ -30,19 +34,14 @@ export default function UserNavAccount({ user }: UserNavAccountProps) {
   };
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Avatar className="cursor-pointer">
-          <AvatarImage src={user?.image as string} alt="profileImage" />
-          <AvatarFallback className="font-bold">
-            {user?.name?.slice(0, 2)}
-          </AvatarFallback>
-        </Avatar>
+      <DropdownMenuTrigger className="flex">
+        <UserAvatar user={user} />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="p-2">
         <DropdownMenuArrow />
         <DropdownMenuLabel>
           {user?.name}
-          <div className="text-gray-400">{user?.email}</div>
+          <div className="text-">{user?.email}</div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
@@ -50,10 +49,11 @@ export default function UserNavAccount({ user }: UserNavAccountProps) {
             My Account
           </DropdownMenuItem>
           <DropdownMenuItem
-            className="text-destructive cursor-pointer"
+            className="text-destructive cursor-pointer space-x-2"
             onClick={handleSignout}
           >
-            Logout
+            <AiOutlineLogout />
+            <span>Logout</span>
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>
