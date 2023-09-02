@@ -1,3 +1,4 @@
+import Container from "@/components/Container";
 import { Overview } from "@/components/Home/Overview";
 import { RecentSales } from "@/components/Home/RecentSales";
 import {
@@ -10,8 +11,8 @@ import {
 
 export default function Home() {
   return (
-    <div className="p-10 space-y-10">
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+    <Container>
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 p-10">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
@@ -127,6 +128,6 @@ export default function Home() {
           </CardContent>
         </Card>
       </div>
-    </div>
+    </Container>
   );
 }
