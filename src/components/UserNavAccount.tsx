@@ -1,7 +1,7 @@
 "use client";
 
 import { User } from "next-auth";
-import { AiOutlineLogout } from "react-icons/ai";
+import { AiOutlineLogout, AiOutlineUser } from "react-icons/ai";
 
 interface UserNavAccountProps {
   user?: Pick<User, "email" | "image" | "name">;
@@ -38,15 +38,15 @@ export default function UserNavAccount({ user }: UserNavAccountProps) {
         <UserAvatar user={user} />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="p-2">
-        <DropdownMenuArrow />
         <DropdownMenuLabel>
           {user?.name}
-          <div className="text-">{user?.email}</div>
+          <div className="text-gray-400">{user?.email}</div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem className="cursor-pointer">
-            My Account
+          <DropdownMenuItem className="cursor-pointer space-x-2">
+            <AiOutlineUser />
+            <span>My Account</span>
           </DropdownMenuItem>
           <DropdownMenuItem
             className="text-destructive cursor-pointer space-x-2"

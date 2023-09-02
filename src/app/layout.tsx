@@ -3,7 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
-import { DarkmodeProvider } from "@/components/DarkModeProvider";
+import { DarkmodeProvider } from "@/components/DarkmodeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,12 +19,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <DarkmodeProvider attribute="class" defaultTheme="system" enableSystem>
-        <body className={cn(inter.className, "antialiased min-h-screen pt-16")}>
+      <body className={cn(inter.className, "antialiased min-h-screen pt-16")}>
+        <DarkmodeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
           {children}
-        </body>
-      </DarkmodeProvider>
+        </DarkmodeProvider>
+      </body>
     </html>
   );
 }
