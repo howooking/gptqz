@@ -4,6 +4,7 @@ import SigninButton from "@/components/SigninButton";
 import Link from "next/link";
 import UserNavAccount from "@/components/UserNavAccount";
 import { User } from "next-auth";
+import { DarkmodeToggle } from "./DarkmodeToggle";
 
 export default async function Navbar() {
   const session = await getServerSession(authOptions);
@@ -15,7 +16,8 @@ export default async function Navbar() {
             GPTQZ
           </div>
         </Link>
-        <div>
+        <div className="flex items-center gap-2">
+          <DarkmodeToggle />
           {session ? <UserNavAccount user={session.user} /> : <SigninButton />}
         </div>
       </nav>
