@@ -20,6 +20,7 @@ export default async function Navbar() {
           </Link>
           <Link href="/dashboard">dashboard</Link>
           <Link href="/history">history</Link>
+          <Link href="/quiz">quiz</Link>
           <div className="flex items-center gap-2">
             <DarkmodeToggle />
             {session ? (

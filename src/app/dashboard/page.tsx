@@ -22,27 +22,29 @@ export default async function Dashboard() {
   }
   return (
     <Container>
-      <div className="py-8 flex items-center">
-        <PageTitle text="Dashboard" />
-        <DetailsDialog />
-      </div>
-      <div className="grid gap-4 mt-4 md:grid-cols-2">
-        <DashboardCard
-          title="Quiz me!"
-          content="Challenge yourself to a quiz with a topic of your choice."
-          href="/quiz"
-          icon={<LuBrainCircuit size={28} strokeWidth={2.5} />}
-        />
-        <DashboardCard
-          title="History"
-          content="View past quiz attempts."
-          href="/history"
-          icon={<LuHistory size={28} strokeWidth={2.5} />}
-        />
-      </div>
-      <div className="grid gap-4 mt-4 md:grid-cols-2">
-        <HotTopicsCard />
-        <RecentActivityCard />
+      <div className="py-8">
+        <div className="flex items-center">
+          <PageTitle text="Dashboard" />
+          <DetailsDialog />
+        </div>
+        <div className="grid gap-4 mt-4 md:grid-cols-2">
+          <DashboardCard
+            title="Quiz me!"
+            content="Challenge yourself to a quiz with a topic of your choice."
+            href="/quiz"
+            icon={<LuBrainCircuit size={28} strokeWidth={2.5} />}
+          />
+          <DashboardCard
+            title="History"
+            content="View past quiz attempts."
+            href="/history"
+            icon={<LuHistory size={28} strokeWidth={2.5} />}
+          />
+        </div>
+        <div className="grid gap-4 mt-4 md:grid-cols-2">
+          <HotTopicsCard />
+          <RecentActivityCard />
+        </div>
       </div>
     </Container>
   );

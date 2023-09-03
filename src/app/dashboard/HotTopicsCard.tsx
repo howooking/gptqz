@@ -6,12 +6,19 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import CustomWorldCloud from "./CustomWorldCloud";
 // import WordCloud from "../WordCloud";
 // import prisma from "@/lib/db";
 
-type Props = {};
+const data = [
+  { text: "Hey", value: 1000 },
+  { text: "lol", value: 200 },
+  { text: "first impression", value: 800 },
+  { text: "very cool", value: 1000000 },
+  { text: "duck", value: 1000 },
+];
 
-const HotTopicsCard = async (props: Props) => {
+export default async function HotTopicsCard() {
   // const topics = await prisma.topic_count.findMany({});
   // const formattedTopics = topics.map((topic) => {
   //   return {
@@ -28,10 +35,8 @@ const HotTopicsCard = async (props: Props) => {
         </CardDescription>
       </CardHeader>
       <CardContent className="pl-2">
-        {/* <WordCloud formattedTopics={formattedTopics} /> */}
+        <CustomWorldCloud data={data} />
       </CardContent>
     </Card>
   );
-};
-
-export default HotTopicsCard;
+}
