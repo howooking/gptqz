@@ -1,11 +1,11 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
-import SigninButton from "@/components/SigninButton";
+import SigninButton from "@/components/Home/SigninButton";
 import Link from "next/link";
-import UserNavAccount from "@/components/UserNavAccount";
+import UserNavAccount from "@/components/Home/UserNavAccount";
 import { User } from "next-auth";
 import { DarkmodeToggle } from "./DarkmodeToggle";
-import Container from "./Container";
+import Container from "../common/Container";
 
 export default async function Navbar() {
   const session = await getServerSession(authOptions);
@@ -18,6 +18,8 @@ export default async function Navbar() {
               GPTQZ
             </div>
           </Link>
+          <Link href="/dashboard">dashboard</Link>
+          <Link href="/history">history</Link>
           <div className="flex items-center gap-2">
             <DarkmodeToggle />
             {session ? (

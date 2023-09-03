@@ -2,8 +2,8 @@ import { cn } from "@/lib/utils";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Navbar from "@/components/Navbar";
-import { DarkmodeProvider } from "@/components/DarkmodeProvider";
+import { DarkmodeProvider } from "@/components/common/DarkmodeProvider";
+import Navbar from "@/components/Home/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
